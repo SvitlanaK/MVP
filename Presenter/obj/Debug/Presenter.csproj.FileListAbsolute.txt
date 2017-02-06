@@ -1,0 +1,10 @@
+C:\Users\Светлана\Desktop\GIT\WinForms_MVP\MVP\Presenter\bin\Debug\Presenter.dll.config
+C:\Users\Светлана\Desktop\GIT\WinForms_MVP\MVP\Presenter\bin\Debug\Presenter.dll
+C:\Users\Светлана\Desktop\GIT\WinForms_MVP\MVP\Presenter\bin\Debug\Presenter.pdb
+C:\Users\Светлана\Desktop\GIT\WinForms_MVP\MVP\Presenter\bin\Debug\EntityFramework.dll
+C:\Users\Светлана\Desktop\GIT\WinForms_MVP\MVP\Presenter\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Светлана\Desktop\GIT\WinForms_MVP\MVP\Presenter\bin\Debug\EntityFramework.xml
+C:\Users\Светлана\Desktop\GIT\WinForms_MVP\MVP\Presenter\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Светлана\Desktop\GIT\WinForms_MVP\MVP\Presenter\obj\Debug\Presenter.csprojResolveAssemblyReference.cache
+C:\Users\Светлана\Desktop\GIT\WinForms_MVP\MVP\Presenter\obj\Debug\Presenter.dll
+C:\Users\Светлана\Desktop\GIT\WinForms_MVP\MVP\Presenter\obj\Debug\Presenter.pdb
