@@ -69,10 +69,10 @@ namespace UI.AuthorForm
 					try
 					{
 						int index = dataGridView1.SelectedRows[0].Index;
-						dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
-						MessageBox.Show("Объект удален");
 						int id = 0;
 						id = Convert.ToInt32(dataGridView1[0, index].Value);
+						dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
+						MessageBox.Show("Объект удален");
 						return id;
 					}
 					catch(Exception e)

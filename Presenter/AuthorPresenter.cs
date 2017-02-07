@@ -40,15 +40,6 @@ namespace Presenter
 			Author a = model1.Edite(view.AuthorToAdd);
 			view.EditeAuthorToList(a);
 		}
-		private void registerToModelEvents()
-		{
-			model1.AuthorSaved += server_AuthorSaved;
-		}
-
-
-		private void server_AuthorSaved(object sender, AuthorSavedEventArgs e)
-		{
-			view.AddAuthorToList(e.Author);
-		}
+		
 	}
 }

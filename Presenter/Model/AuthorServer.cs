@@ -12,7 +12,6 @@ namespace Presenter.Model
 	public class AuthorServer : IAuthorServer
 	{
 		private ModelContext db = new ModelContext();
-		public event EventHandler<AuthorSavedEventArgs> AuthorSaved;
 		public AuthorServer()
 		{
 			db.Authors.Load();
@@ -27,7 +26,6 @@ namespace Presenter.Model
 			{
 				db.Authors.Add(_author);
 				db.SaveChanges();
-				raiseAuthorSaved(_author);
 			}
 			return _author;
 		}
@@ -38,7 +36,6 @@ namespace Presenter.Model
 				Author a = db.Authors.Find(_id);
 				db.Authors.Remove(a);
 				db.SaveChanges();
-				raiseAuthorSaved(a);
 			}
 		}
 		public Author Edite(Author _author)
@@ -50,16 +47,7 @@ namespace Presenter.Model
 
 			}
 			db.SaveChanges();
-			raiseAuthorSaved(authorUpdate);
 			return authorUpdate;
-		}
-
-		private void raiseAuthorSaved(Author _author)
-		{
-			if(AuthorSaved != null)
-			{
-				AuthorSaved(this, new AuthorSavedEventArgs(_author));
-			}
 		}
 	}
 }

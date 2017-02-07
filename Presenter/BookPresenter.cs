@@ -40,13 +40,5 @@ namespace Presenter
 			Book bookUpdate = model.Edite(view.BookToAdd);
 			view.EditeBookToList(bookUpdate);
 		}
-		private void registerToModelEvents()
-		{
-			model.BookSaved += server_BookSaved;
-		}
-		private void server_BookSaved(object sender, BookSavedEventArgs e)
-		{
-			view.AddBookToList(e.Book);
-		}
 	}
 }
