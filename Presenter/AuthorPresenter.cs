@@ -1,22 +1,20 @@
-﻿using Presenter.DataBase;
+﻿using Model.DataBase;
+using Model.Model;
 using Presenter.Interface;
-using Presenter.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Presenter
 {
 	public class AuthorPresenter
 	{
 		private IAuthorView view;
-		private IAuthorServer model1;
+		private AuthorServer model1;
 		public AuthorPresenter(IAuthorView view)
 		{
 			this.view = view;
-			model1 = new AuthorServer();
+			 model1 = new AuthorServer();
 		}
 		public void InitView()
 		{
@@ -26,6 +24,7 @@ namespace Presenter
 				view.AddAuthorToList(author);
 			}
 		}
+		
 		public void AddAuthor()
 		{
 			Author a = model1.Create(view.AuthorToAdd);

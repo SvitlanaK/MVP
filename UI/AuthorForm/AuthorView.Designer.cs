@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
@@ -42,9 +43,25 @@
 			this.txt_id = new System.Windows.Forms.TextBox();
 			this.button3 = new System.Windows.Forms.Button();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this._Model_DataBase_ModelContextDataSet = new UI._Model_DataBase_ModelContextDataSet();
+			this.modelDataBaseModelContextDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.magazinesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.magazinesTableAdapter = new UI._Model_DataBase_ModelContextDataSetTableAdapters.MagazinesTableAdapter();
+			this.booksBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.booksTableAdapter = new UI._Model_DataBase_ModelContextDataSetTableAdapters.BooksTableAdapter();
+			this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.MidleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Magazine = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Books = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this._Model_DataBase_ModelContextDataSet)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.modelDataBaseModelContextDataSetBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.magazinesBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// dataGridView1
@@ -52,9 +69,16 @@
 			this.dataGridView1.AllowUserToAddRows = false;
 			this.dataGridView1.AllowUserToDeleteRows = false;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(2, 1);
+			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.FirstName,
+            this.MidleName,
+            this.LastName,
+            this.Magazine,
+            this.Books});
+			this.dataGridView1.Location = new System.Drawing.Point(-1, 1);
 			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(496, 239);
+			this.dataGridView1.Size = new System.Drawing.Size(581, 239);
 			this.dataGridView1.TabIndex = 0;
 			this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
 			// 
@@ -104,7 +128,7 @@
 			this.groupBox1.Controls.Add(this.txt_id);
 			this.groupBox1.Location = new System.Drawing.Point(12, 246);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(259, 208);
+			this.groupBox1.Size = new System.Drawing.Size(240, 213);
 			this.groupBox1.TabIndex = 5;
 			this.groupBox1.TabStop = false;
 			// 
@@ -160,7 +184,7 @@
 			// 
 			// button3
 			// 
-			this.button3.Location = new System.Drawing.Point(48, 36);
+			this.button3.Location = new System.Drawing.Point(18, 23);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(111, 33);
 			this.button3.TabIndex = 6;
@@ -171,18 +195,80 @@
 			// groupBox2
 			// 
 			this.groupBox2.Controls.Add(this.button3);
-			this.groupBox2.Location = new System.Drawing.Point(287, 301);
+			this.groupBox2.Location = new System.Drawing.Point(323, 314);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(200, 100);
+			this.groupBox2.Size = new System.Drawing.Size(147, 77);
 			this.groupBox2.TabIndex = 7;
 			this.groupBox2.TabStop = false;
+			// 
+			// _Model_DataBase_ModelContextDataSet
+			// 
+			this._Model_DataBase_ModelContextDataSet.DataSetName = "_Model_DataBase_ModelContextDataSet";
+			this._Model_DataBase_ModelContextDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			// 
+			// modelDataBaseModelContextDataSetBindingSource
+			// 
+			this.modelDataBaseModelContextDataSetBindingSource.DataSource = this._Model_DataBase_ModelContextDataSet;
+			this.modelDataBaseModelContextDataSetBindingSource.Position = 0;
+			// 
+			// magazinesBindingSource
+			// 
+			this.magazinesBindingSource.DataMember = "Magazines";
+			this.magazinesBindingSource.DataSource = this.modelDataBaseModelContextDataSetBindingSource;
+			// 
+			// magazinesTableAdapter
+			// 
+			this.magazinesTableAdapter.ClearBeforeFill = true;
+			// 
+			// booksBindingSource
+			// 
+			this.booksBindingSource.DataMember = "Books";
+			this.booksBindingSource.DataSource = this.modelDataBaseModelContextDataSetBindingSource;
+			// 
+			// booksTableAdapter
+			// 
+			this.booksTableAdapter.ClearBeforeFill = true;
+			// 
+			// ID
+			// 
+			this.ID.HeaderText = "ID";
+			this.ID.Name = "ID";
+			this.ID.Width = 30;
+			// 
+			// FirstName
+			// 
+			this.FirstName.HeaderText = "FirstName";
+			this.FirstName.Name = "FirstName";
+			// 
+			// MidleName
+			// 
+			this.MidleName.HeaderText = "MidleName";
+			this.MidleName.Name = "MidleName";
+			// 
+			// LastName
+			// 
+			this.LastName.HeaderText = "LastName";
+			this.LastName.Name = "LastName";
+			this.LastName.ReadOnly = true;
+			// 
+			// Magazine
+			// 
+			this.Magazine.HeaderText = "Magazine";
+			this.Magazine.Name = "Magazine";
+			this.Magazine.ReadOnly = true;
+			// 
+			// Books
+			// 
+			this.Books.HeaderText = "Books";
+			this.Books.Name = "Books";
+			this.Books.ReadOnly = true;
 			// 
 			// AuthorView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
-			this.ClientSize = new System.Drawing.Size(499, 466);
+			this.ClientSize = new System.Drawing.Size(582, 466);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
@@ -198,6 +284,10 @@
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this._Model_DataBase_ModelContextDataSet)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.modelDataBaseModelContextDataSetBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.magazinesBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -219,5 +309,17 @@
 		private System.Windows.Forms.TextBox txt_id;
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.GroupBox groupBox2;
+		private System.Windows.Forms.BindingSource modelDataBaseModelContextDataSetBindingSource;
+		private _Model_DataBase_ModelContextDataSet _Model_DataBase_ModelContextDataSet;
+		private System.Windows.Forms.BindingSource magazinesBindingSource;
+		private _Model_DataBase_ModelContextDataSetTableAdapters.MagazinesTableAdapter magazinesTableAdapter;
+		private System.Windows.Forms.BindingSource booksBindingSource;
+		private _Model_DataBase_ModelContextDataSetTableAdapters.BooksTableAdapter booksTableAdapter;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+		private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
+		private System.Windows.Forms.DataGridViewTextBoxColumn MidleName;
+		private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Magazine;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Books;
 	}
 }

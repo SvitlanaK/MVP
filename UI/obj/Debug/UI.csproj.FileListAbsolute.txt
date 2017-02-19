@@ -32,3 +32,6 @@ C:\Users\Светлана\Desktop\MVP\UI\obj\Debug\UI.BookForm.BookView.resource
 C:\Users\Светлана\Desktop\MVP\UI\obj\Debug\UI.Main_Form.resources
 C:\Users\Светлана\Desktop\MVP\UI\obj\Debug\UI.Properties.Resources.resources
 C:\Users\Светлана\Desktop\MVP\UI\obj\Debug\UI.csproj.GenerateResource.Cache
+C:\Users\Светлана\Desktop\MVP\UI\bin\Debug\Model.dll
+C:\Users\Светлана\Desktop\MVP\UI\bin\Debug\Model.pdb
+C:\Users\Светлана\Desktop\MVP\UI\obj\Debug\UI.MagazineForm.MagazineView.resources

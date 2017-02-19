@@ -18,3 +18,5 @@ C:\Users\Светлана\Desktop\MVP\Presenter\bin\Debug\EntityFramework.SqlSer
 C:\Users\Светлана\Desktop\MVP\Presenter\obj\Debug\Presenter.csprojResolveAssemblyReference.cache
 C:\Users\Светлана\Desktop\MVP\Presenter\obj\Debug\Presenter.dll
 C:\Users\Светлана\Desktop\MVP\Presenter\obj\Debug\Presenter.pdb
+C:\Users\Светлана\Desktop\MVP\Presenter\bin\Debug\Model.dll
+C:\Users\Светлана\Desktop\MVP\Presenter\bin\Debug\Model.pdb

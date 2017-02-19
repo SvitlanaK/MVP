@@ -28,7 +28,11 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.NameBook = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.AuthorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.button2 = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
@@ -38,11 +42,16 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.button3 = new System.Windows.Forms.Button();
-			this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.NameBook = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this._Model_DataBase_ModelContextDataSet = new UI._Model_DataBase_ModelContextDataSet();
+			this.authorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.authorsTableAdapter = new UI._Model_DataBase_ModelContextDataSetTableAdapters.AuthorsTableAdapter();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this._Model_DataBase_ModelContextDataSet)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.authorsBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// dataGridView1
@@ -52,15 +61,33 @@
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.NameBook});
+            this.NameBook,
+            this.AuthorId});
 			this.dataGridView1.Location = new System.Drawing.Point(9, -1);
 			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(358, 197);
+			this.dataGridView1.Size = new System.Drawing.Size(413, 197);
 			this.dataGridView1.TabIndex = 0;
 			this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
 			// 
+			// ID
+			// 
+			this.ID.HeaderText = "ID";
+			this.ID.Name = "ID";
+			// 
+			// NameBook
+			// 
+			this.NameBook.HeaderText = "NameBook";
+			this.NameBook.Name = "NameBook";
+			// 
+			// AuthorId
+			// 
+			this.AuthorId.HeaderText = "Author";
+			this.AuthorId.Name = "AuthorId";
+			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.label3);
+			this.groupBox1.Controls.Add(this.comboBox1);
 			this.groupBox1.Controls.Add(this.button2);
 			this.groupBox1.Controls.Add(this.button1);
 			this.groupBox1.Controls.Add(this.txt_name);
@@ -69,7 +96,7 @@
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Location = new System.Drawing.Point(12, 214);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(215, 174);
+			this.groupBox1.Size = new System.Drawing.Size(308, 174);
 			this.groupBox1.TabIndex = 1;
 			this.groupBox1.TabStop = false;
 			// 
@@ -130,7 +157,7 @@
 			// groupBox2
 			// 
 			this.groupBox2.Controls.Add(this.button3);
-			this.groupBox2.Location = new System.Drawing.Point(233, 247);
+			this.groupBox2.Location = new System.Drawing.Point(326, 244);
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.Size = new System.Drawing.Size(134, 82);
 			this.groupBox2.TabIndex = 2;
@@ -146,22 +173,46 @@
 			this.button3.UseVisualStyleBackColor = true;
 			this.button3.Click += new System.EventHandler(this.button3_Click);
 			// 
-			// ID
+			// comboBox1
 			// 
-			this.ID.HeaderText = "ID";
-			this.ID.Name = "ID";
+			this.comboBox1.DataSource = this.authorsBindingSource;
+			this.comboBox1.DisplayMember = "LastName";
+			this.comboBox1.FormattingEnabled = true;
+			this.comboBox1.Location = new System.Drawing.Point(181, 47);
+			this.comboBox1.Name = "comboBox1";
+			this.comboBox1.Size = new System.Drawing.Size(121, 21);
+			this.comboBox1.TabIndex = 6;
+			this.comboBox1.ValueMember = "Id";
 			// 
-			// NameBook
+			// label3
 			// 
-			this.NameBook.HeaderText = "NameBook";
-			this.NameBook.Name = "NameBook";
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(178, 31);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(38, 13);
+			this.label3.TabIndex = 7;
+			this.label3.Text = "Author";
+			// 
+			// _Model_DataBase_ModelContextDataSet
+			// 
+			this._Model_DataBase_ModelContextDataSet.DataSetName = "_Model_DataBase_ModelContextDataSet";
+			this._Model_DataBase_ModelContextDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			// 
+			// authorsBindingSource
+			// 
+			this.authorsBindingSource.DataMember = "Authors";
+			this.authorsBindingSource.DataSource = this._Model_DataBase_ModelContextDataSet;
+			// 
+			// authorsTableAdapter
+			// 
+			this.authorsTableAdapter.ClearBeforeFill = true;
 			// 
 			// BookView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.MenuBar;
-			this.ClientSize = new System.Drawing.Size(373, 402);
+			this.ClientSize = new System.Drawing.Size(472, 402);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.dataGridView1);
@@ -173,6 +224,8 @@
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this._Model_DataBase_ModelContextDataSet)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.authorsBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -191,5 +244,11 @@
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ID;
 		private System.Windows.Forms.DataGridViewTextBoxColumn NameBook;
+		private System.Windows.Forms.DataGridViewTextBoxColumn AuthorId;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.ComboBox comboBox1;
+		private _Model_DataBase_ModelContextDataSet _Model_DataBase_ModelContextDataSet;
+		private System.Windows.Forms.BindingSource authorsBindingSource;
+		private _Model_DataBase_ModelContextDataSetTableAdapters.AuthorsTableAdapter authorsTableAdapter;
 	}
 }

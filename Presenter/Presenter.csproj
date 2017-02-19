@@ -53,20 +53,21 @@
   <ItemGroup>
     <Compile Include="AuthorPresenter.cs" />
     <Compile Include="BookPresenter.cs" />
-    <Compile Include="DataBase\Author.cs" />
-    <Compile Include="DataBase\Book.cs" />
-    <Compile Include="DataBase\ModelContext.cs" />
-    <Compile Include="Interface\IAuthorServer.cs" />
-    <Compile Include="Interface\IBookServer.cs" />
     <Compile Include="Interface\IBookView.cs" />
     <Compile Include="Interface\IAuthorView.cs" />
-    <Compile Include="Model\AuthorServer.cs" />
-    <Compile Include="Model\BookServer.cs" />
+    <Compile Include="Interface\IMagazineView.cs" />
+    <Compile Include="MagazinePresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{855dfa72-ace6-46bd-9a92-9e1531bfcec3}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,18 +1,14 @@
-﻿using Presenter.DataBase;
+﻿using Model.DataBase;
+using Model.Model;
 using Presenter.Interface;
-using Presenter.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Presenter
 {
 	public class BookPresenter
 	{
 		private IBookView view;
-		private IBookServer model;
+		private BookServer model;
 		public BookPresenter(IBookView view)
 		{
 			this.view = view;
