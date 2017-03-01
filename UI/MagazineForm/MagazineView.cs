@@ -8,19 +8,19 @@ namespace UI.MagazineForm
 {
 	public partial class MagazineView : Form, IMagazineView
 	{
-		private MagazinePresenter presenter;
+		private MagazinePresenter _presenter;
 
 		public MagazineView()
 		{
 			InitializeComponent();
 			MagazinePresenter presenter = new MagazinePresenter(this);
-			this.presenter = presenter;
+			this._presenter = presenter;
 		}
 		public Magazine Add
 		{
 			get
 			{
-				Magazine magazine = new Magazine { Id = Convert.ToInt32(txt_id.Text), Name = txt_name.Text};
+				var magazine = new Magazine { Id = Convert.ToInt32(txt_id.Text), Name = txt_name.Text};
 				return magazine;
 			}
 		}
@@ -28,23 +28,22 @@ namespace UI.MagazineForm
 		{
 			get
 			{
-				AuthorMagazine author = new AuthorMagazine { AuthorId = Convert.ToInt32(comboBox1.SelectedValue), MagazineId = Convert.ToInt32(txt_id.Text) };
+				var author = new AuthorMagazine { AuthorId = Convert.ToInt32(comboBox1.SelectedValue), MagazineId = Convert.ToInt32(txt_id.Text) };
 				return author;
 			}
 		}
-		public void AddMagazineToList(Magazine m)
+		public void AddMagazineToList(Magazine magazine)
 		{
 			int row = dataGridView1.Rows.Add();
-			dataGridView1.Rows[row].Cells[0].Value = m.Id;
-			dataGridView1.Rows[row].Cells[1].Value = m.Name;
+			dataGridView1.Rows[row].Cells[0].Value = magazine.Id;
+			dataGridView1.Rows[row].Cells[1].Value = magazine.Name;
 			try
 			{
-				foreach(AuthorMagazine magazine in m.Authors)
+				foreach(AuthorMagazine authorMagazine in _presenter.AddAuthor)
 				{
-					if(magazine.MagazineId == m.Id)
-					{
-						dataGridView1.Rows[row].Cells[2].Value += Convert.ToString(magazine.AuthorId) + ", ";
-					}
+					if(magazine.Id == authorMagazine.MagazineId)
+						dataGridView1.Rows[row].Cells[2].Value += authorMagazine.Author.LastName + ", ";
+					
 				}
 			}
 			catch(Exception e)
@@ -53,14 +52,14 @@ namespace UI.MagazineForm
 			}
 
 		}
-		public void EditeMagazineToList(Magazine m, AuthorMagazine m2)
+		public void EditeMagazineToList(Magazine magazine, AuthorMagazine authorMagazine)
 		{
 			try
 			{
 				int index = dataGridView1.SelectedRows[0].Index;
-				dataGridView1.Rows[index].Cells[0].Value = m.Id;
-				dataGridView1.Rows[index].Cells[1].Value = m.Name;
-				dataGridView1.Rows[index].Cells[2].Value = m2.AuthorId;
+				dataGridView1.Rows[index].Cells[0].Value = magazine.Id;
+				dataGridView1.Rows[index].Cells[1].Value = magazine.Name;
+				dataGridView1.Rows[index].Cells[2].Value = authorMagazine.AuthorId;
 				MessageBox.Show("Объект изменен");
 			}
 			catch(Exception e)
@@ -95,28 +94,29 @@ namespace UI.MagazineForm
 		}
 		private void button1_Click(object sender, EventArgs e)
 		{
-			presenter.Add();
+			_presenter.Add();
 			MessageBox.Show("Новый объект добавлен");
 			Clear();
 		}
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			presenter.Edite();
+			_presenter.Edite();
 			Clear();
 		}
 
 		private void button3_Click(object sender, EventArgs e)
 		{
-			presenter.Remove();
+			_presenter.Remove();
 			Clear();
 		}
 
 		private void MagazineView_Load(object sender, EventArgs e)
 		{
-			// TODO: This line of code loads data into the '_Model_DataBase_ModelContextDataSet.Authors' table. You can move, or remove it, as needed.
+			comboBox1.ResetText();
+			comboBox1.SelectedItem = -1;
 			this.authorsTableAdapter.Fill(this._Model_DataBase_ModelContextDataSet.Authors);
-			presenter.InitView();
+			_presenter.InitView();
 		}
 
 		private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -124,6 +124,12 @@ namespace UI.MagazineForm
 			int index = dataGridView1.SelectedRows[0].Index;
 			txt_id.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
 			txt_name.Text = dataGridView1.Rows[index].Cells[1].Value.ToString();
+		}
+
+		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			comboBox1.ResetText();
+			comboBox1.SelectedItem = -1;
 		}
 	}
 }

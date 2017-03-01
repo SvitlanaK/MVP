@@ -9,35 +9,48 @@ namespace Presenter
 {
 	public class AuthorPresenter
 	{
-		private IAuthorView view;
-		private AuthorServer model1;
+		private IAuthorView _view;
+		private AuthorServer _model;
 		public AuthorPresenter(IAuthorView view)
 		{
-			this.view = view;
-			 model1 = new AuthorServer();
+			this._view = view;
+			_model = new AuthorServer();
 		}
 		public void InitView()
 		{
-			IEnumerable<Author> authors = model1.GetAllAuthors();
+			IEnumerable<Author> authors = _model.GetAllAuthors();
 			foreach(Author author in authors)
 			{
-				view.AddAuthorToList(author);
+				_view.AddAuthorToList(author);
 			}
 		}
-		
+		public List<Book> AddBook
+		{
+			get
+			{
+				return _model.BooksView();
+			}
+		}
+		public List<AuthorMagazine> AddMagazine
+		{
+			get
+			{
+				return _model.AuthorView();
+			}
+		}
 		public void AddAuthor()
 		{
-			Author a = model1.Create(view.AuthorToAdd);
-			view.AddAuthorToList(a);
+			var author = _model.Create(_view.AuthorToAdd, _view.AddItem);
+			_view.AddAuthorToList(author);
 		}
 		public void RemoveAuthor()
 		{
-			model1.Delete(view.RemoveAuthor);
+			_model.Delete(_view.RemoveAuthor);
 		}
 		public void EditeAuthor()
 		{
-			Author a = model1.Edite(view.AuthorToAdd);
-			view.EditeAuthorToList(a);
+			var author = _model.Edite(_view.AuthorToAdd);
+			_view.EditeAuthorToList(author);
 		}
 		
 	}

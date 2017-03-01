@@ -56,6 +56,11 @@
     <Compile Include="DataBase\AuthorMagazine.cs" />
     <Compile Include="DataBase\Magazine.cs" />
     <Compile Include="DataBase\ModelContext.cs" />
+    <Compile Include="Migrations\201702221111047_Model.cs" />
+    <Compile Include="Migrations\201702221111047_Model.Designer.cs">
+      <DependentUpon>201702221111047_Model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\AuthorServer.cs" />
     <Compile Include="Model\BookServer.cs" />
     <Compile Include="Model\MagazineServer.cs" />
@@ -64,6 +69,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201702221111047_Model.resx">
+      <DependentUpon>201702221111047_Model.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

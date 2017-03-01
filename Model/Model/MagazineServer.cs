@@ -9,44 +9,49 @@ namespace Model.Model
 {
 	public class MagazineServer
 	{
-		private ModelContext db = new ModelContext();
+		private ModelContext _db = new ModelContext();
 		public MagazineServer()
 		{
-			db.Magazines.Load();
+			_db.Magazines.Load();
 		}
 		public IEnumerable<Magazine> GetAllBooks()
 		{
-			return db.Magazines;
+			return _db.Magazines;
 		}
-		public Magazine Save(Magazine _magazine, AuthorMagazine _author)
+		public List<AuthorMagazine> AuthorView()
 		{
-			if(_magazine.Id == 0)
+			return _db.AuthorMagazines.Include(x => x.Author).Where(m => m.MagazineId == m.Magazine.Id).ToList();
+
+		}
+		public Magazine Save(Magazine magazine, AuthorMagazine authorMagazine)
+		{
+			if(magazine.Id == 0)
 			{
-				db.Magazines.Add(_magazine);
-				db.AuthorMagazines.Add(_author);
-				db.SaveChanges();
+				_db.Magazines.Add(magazine);
+				_db.AuthorMagazines.Add(authorMagazine);
+				_db.SaveChanges();
 			}
-			return _magazine;
+			return magazine;
 		}
 
-		public void Delete(int _id)
+		public void Delete(int id)
 		{
-			if(_id > 0)
+			if(id > 0)
 			{
-				Magazine updateMagazine = db.Magazines.Find(_id);
-				db.Magazines.Remove(updateMagazine);
-				db.SaveChanges();
+				Magazine updateMagazine = _db.Magazines.Find(id);
+				_db.Magazines.Remove(updateMagazine);
+				_db.SaveChanges();
 			}
 		}
-		public Magazine Edite(Magazine _magazine, AuthorMagazine _author)
+		public Magazine Edite(Magazine magazine, AuthorMagazine authorMagazine)
 		{
-			Magazine updateMagazine = db.Magazines.Where(p => p.Id == _magazine.Id).FirstOrDefault();
+			Magazine updateMagazine = _db.Magazines.Where(p => p.Id == magazine.Id).FirstOrDefault();
 			if(updateMagazine != null)
 			{
-				db.Entry(updateMagazine).CurrentValues.SetValues(_magazine);
-				db.AuthorMagazines.Add(_author);
+				_db.Entry(updateMagazine).CurrentValues.SetValues(magazine);
+				_db.AuthorMagazines.Add(authorMagazine);
 			}
-			db.SaveChanges();
+			_db.SaveChanges();
 			return updateMagazine;
 		}
 	}

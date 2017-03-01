@@ -117,73 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="FirstName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="MidleName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="LastName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Magazine.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Books.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="FirstName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="MidleName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="LastName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Magazine.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Books.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="magazinesBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 134</value>
-  </metadata>
-  <metadata name="modelDataBaseModelContextDataSetBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>290, 17</value>
-  </metadata>
-  <metadata name="_Model_DataBase_ModelContextDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="magazinesBindingSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>382, 95</value>
-  </metadata>
-  <metadata name="modelDataBaseModelContextDataSetBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>290, 17</value>
-  </metadata>
-  <metadata name="_Model_DataBase_ModelContextDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="booksBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 95</value>
-  </metadata>
-  <metadata name="magazinesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
-  <metadata name="magazinesTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>205, 56</value>
-  </metadata>
-  <metadata name="booksBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>388, 56</value>
-  </metadata>
-  <metadata name="booksTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>552, 56</value>
-  </metadata>
+  <data name="Target" xml:space="preserve">
+    <value>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</value>
+  </data>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
+  </data>
 </root>

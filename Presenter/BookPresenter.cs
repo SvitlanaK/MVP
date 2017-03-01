@@ -7,34 +7,34 @@ namespace Presenter
 {
 	public class BookPresenter
 	{
-		private IBookView view;
-		private BookServer model;
+		private IBookView _view;
+		private BookServer _model;
 		public BookPresenter(IBookView view)
 		{
-			this.view = view;
-			model = new BookServer();
+			this._view = view;
+			_model = new BookServer();
 		}
 		public void InitView()
 		{
-			IEnumerable<Book> books = model.GetAllBooks();
+			IEnumerable<Book> books = _model.GetAllBooks();
 			foreach(Book book in books)
 			{
-				view.AddBookToList(book);
+				_view.AddBookToList(book);
 			}
 		}
 		public void AddBook()
 		{
-			Book bookUpdate = model.Save(view.BookToAdd);
-			view.AddBookToList(bookUpdate);
+			var bookUpdate = _model.Save(_view.BookToAdd);
+			_view.AddBookToList(bookUpdate);
 		}
 		public void RemoveBook()
 		{
-			model.Delete(view.RemoveBook);
+			_model.Delete(_view.RemoveBook);
 		}
 		public void EditeBook()
 		{
-			Book bookUpdate = model.Edite(view.BookToAdd);
-			view.EditeBookToList(bookUpdate);
+			var bookUpdate = _model.Edite(_view.BookToAdd);
+			_view.EditeBookToList(bookUpdate);
 		}
 	}
 }

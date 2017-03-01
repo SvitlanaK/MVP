@@ -8,23 +8,23 @@ namespace UI.BookForm
 {
 	public partial class BookView : Form, IBookView
 	{
-		private BookPresenter presenter;
+		private BookPresenter _presenter;
 		public BookView()
 		{
 			InitializeComponent();
 			BookPresenter presenter = new BookPresenter(this);
-			this.presenter = presenter;
+			this._presenter = presenter;
 		}
 		public Book BookToAdd
 		{
 			get
 			{
-				Book book = new Book { Id = Convert.ToInt32(txt_id.Text), Name = txt_name.Text, AuthorId = Convert.ToInt32(comboBox1.SelectedValue) };
+				var book = new Book { Id = Convert.ToInt32(txt_id.Text), Name = txt_name.Text };
 
 				return book;
 			}
 		}
-
+		
 		public void AddBookToList(Book book)
 		{
 			int row = dataGridView1.Rows.Add();
@@ -74,25 +74,24 @@ namespace UI.BookForm
 		}
 		private void BookView_Load(object sender, EventArgs e)
 		{
-			
 			this.authorsTableAdapter.Fill(this._Model_DataBase_ModelContextDataSet.Authors);
-			presenter.InitView();
+			_presenter.InitView();
 		}
 		private void button1_Click(object sender, EventArgs e)
 		{
-			presenter.AddBook();
+			_presenter.AddBook();
 			MessageBox.Show("Новый объект добавлен");
 			Clear();
 		}
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			presenter.EditeBook();
+			_presenter.EditeBook();
 			Clear();
 		}
 		private void button3_Click(object sender, EventArgs e)
 		{
-			presenter.RemoveBook();
+			_presenter.RemoveBook();
 			Clear();
 
 		}

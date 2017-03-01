@@ -34,6 +34,9 @@
 			this.NameBook = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.AuthorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.authorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this._Model_DataBase_ModelContextDataSet = new UI._Model_DataBase_ModelContextDataSet();
 			this.button2 = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
 			this.txt_name = new System.Windows.Forms.TextBox();
@@ -42,16 +45,15 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.button3 = new System.Windows.Forms.Button();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
-			this.label3 = new System.Windows.Forms.Label();
-			this._Model_DataBase_ModelContextDataSet = new UI._Model_DataBase_ModelContextDataSet();
-			this.authorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.authorsTableAdapter = new UI._Model_DataBase_ModelContextDataSetTableAdapters.AuthorsTableAdapter();
+			this.listBox1 = new System.Windows.Forms.ListBox();
+			this.authorsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.groupBox1.SuspendLayout();
-			this.groupBox2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this._Model_DataBase_ModelContextDataSet)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.authorsBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this._Model_DataBase_ModelContextDataSet)).BeginInit();
+			this.groupBox2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.authorsBindingSource1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// dataGridView1
@@ -86,8 +88,8 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.listBox1);
 			this.groupBox1.Controls.Add(this.label3);
-			this.groupBox1.Controls.Add(this.comboBox1);
 			this.groupBox1.Controls.Add(this.button2);
 			this.groupBox1.Controls.Add(this.button1);
 			this.groupBox1.Controls.Add(this.txt_name);
@@ -99,6 +101,25 @@
 			this.groupBox1.Size = new System.Drawing.Size(308, 174);
 			this.groupBox1.TabIndex = 1;
 			this.groupBox1.TabStop = false;
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(178, 31);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(38, 13);
+			this.label3.TabIndex = 7;
+			this.label3.Text = "Author";
+			// 
+			// authorsBindingSource
+			// 
+			this.authorsBindingSource.DataMember = "Authors";
+			this.authorsBindingSource.DataSource = this._Model_DataBase_ModelContextDataSet;
+			// 
+			// _Model_DataBase_ModelContextDataSet
+			// 
+			this._Model_DataBase_ModelContextDataSet.DataSetName = "_Model_DataBase_ModelContextDataSet";
+			this._Model_DataBase_ModelContextDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
 			// 
 			// button2
 			// 
@@ -173,39 +194,26 @@
 			this.button3.UseVisualStyleBackColor = true;
 			this.button3.Click += new System.EventHandler(this.button3_Click);
 			// 
-			// comboBox1
-			// 
-			this.comboBox1.DataSource = this.authorsBindingSource;
-			this.comboBox1.DisplayMember = "LastName";
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(181, 47);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(121, 21);
-			this.comboBox1.TabIndex = 6;
-			this.comboBox1.ValueMember = "Id";
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(178, 31);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(38, 13);
-			this.label3.TabIndex = 7;
-			this.label3.Text = "Author";
-			// 
-			// _Model_DataBase_ModelContextDataSet
-			// 
-			this._Model_DataBase_ModelContextDataSet.DataSetName = "_Model_DataBase_ModelContextDataSet";
-			this._Model_DataBase_ModelContextDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-			// 
-			// authorsBindingSource
-			// 
-			this.authorsBindingSource.DataMember = "Authors";
-			this.authorsBindingSource.DataSource = this._Model_DataBase_ModelContextDataSet;
-			// 
 			// authorsTableAdapter
 			// 
 			this.authorsTableAdapter.ClearBeforeFill = true;
+			// 
+			// listBox1
+			// 
+			this.listBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+			this.listBox1.DataSource = this.authorsBindingSource1;
+			this.listBox1.DisplayMember = "LastName";
+			this.listBox1.FormattingEnabled = true;
+			this.listBox1.Location = new System.Drawing.Point(181, 48);
+			this.listBox1.Name = "listBox1";
+			this.listBox1.Size = new System.Drawing.Size(120, 95);
+			this.listBox1.TabIndex = 8;
+			this.listBox1.ValueMember = "Id";
+			// 
+			// authorsBindingSource1
+			// 
+			this.authorsBindingSource1.DataMember = "Authors";
+			this.authorsBindingSource1.DataSource = this._Model_DataBase_ModelContextDataSet;
 			// 
 			// BookView
 			// 
@@ -223,9 +231,10 @@
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
-			this.groupBox2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this._Model_DataBase_ModelContextDataSet)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.authorsBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this._Model_DataBase_ModelContextDataSet)).EndInit();
+			this.groupBox2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.authorsBindingSource1)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -246,9 +255,10 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn NameBook;
 		private System.Windows.Forms.DataGridViewTextBoxColumn AuthorId;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.ComboBox comboBox1;
 		private _Model_DataBase_ModelContextDataSet _Model_DataBase_ModelContextDataSet;
 		private System.Windows.Forms.BindingSource authorsBindingSource;
 		private _Model_DataBase_ModelContextDataSetTableAdapters.AuthorsTableAdapter authorsTableAdapter;
+		private System.Windows.Forms.ListBox listBox1;
+		private System.Windows.Forms.BindingSource authorsBindingSource1;
 	}
 }

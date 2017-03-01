@@ -8,34 +8,41 @@ namespace Presenter
 {
 	public class MagazinePresenter
 	{
-		private IMagazineView view;
-		private MagazineServer model;
+		private IMagazineView _view;
+		private MagazineServer _model;
 		public MagazinePresenter(IMagazineView view)
 		{
-			this.view = view;
-			model = new MagazineServer();
+			this._view = view;
+			_model = new MagazineServer();
 		}
 		public void InitView()
 		{
-			IEnumerable<Magazine> magazines = model.GetAllBooks();
+			IEnumerable<Magazine> magazines = _model.GetAllBooks();
 			foreach(Magazine magazine in magazines)
 			{
-				view.AddMagazineToList(magazine);
+				_view.AddMagazineToList(magazine);
+			}
+		}
+		public List<AuthorMagazine> AddAuthor
+		{
+			get
+			{
+				return _model.AuthorView();
 			}
 		}
 		public void Add()
 		{
-			Magazine magazineUpdate = model.Save(view.Add, view.AddAuthor);
-			view.AddMagazineToList(magazineUpdate);
+			var magazineUpdate = _model.Save(_view.Add, _view.AddAuthor);
+			_view.AddMagazineToList(magazineUpdate);
 		}
 		public void Remove()
 		{
-			model.Delete(view.Remove);
+			_model.Delete(_view.Remove);
 		}
 		public void Edite()
 		{
-			Magazine magasineUpdate = model.Edite(view.Add,view.AddAuthor );
-			view.EditeMagazineToList(magasineUpdate, view.AddAuthor);
+			var magasineUpdate = _model.Edite(_view.Add,_view.AddAuthor );
+			_view.EditeMagazineToList(magasineUpdate, _view.AddAuthor);
 		}
 	}
 }

@@ -11,8 +11,8 @@ namespace Model.DataBase
 	{
 		public int Id { get; set; }
 		public int MagazineId { get; set; }
-		public Magazine Magazine { get; set; }
+		public virtual Magazine Magazine { get; set; }
 		public int AuthorId { get; set; }
-		public Author Author { get; set; }
+		public virtual Author Author { get; set; }
 	}
 }

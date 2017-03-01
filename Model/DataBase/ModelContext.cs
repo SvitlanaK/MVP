@@ -14,14 +14,5 @@ namespace Model.DataBase
 		public DbSet<Book> Books { get; set; }
 		public DbSet<Magazine> Magazines { get; set; }
 		public DbSet<AuthorMagazine> AuthorMagazines { get; set; }
-		protected override void OnModelCreating(DbModelBuilder modelBuilder)
-		{
-			base.OnModelCreating(modelBuilder);
-			modelBuilder.Entity<Author>()
-		   .HasMany(p => p.Books)
-		   .WithRequired(p => p.Author)
-		   .HasForeignKey(f => f.AuthorId);
-
-		}
 	}
 }

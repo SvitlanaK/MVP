@@ -8,8 +8,8 @@ namespace Presenter.Interface
 	{
 		Magazine Add { get; }
 		AuthorMagazine AddAuthor { get; }
-		void AddMagazineToList(Magazine m);
-		void EditeMagazineToList(Magazine m, AuthorMagazine m2);
+		void AddMagazineToList(Magazine magazine);
+		void EditeMagazineToList(Magazine magazine, AuthorMagazine authorMagazine);
 		int Remove { get; }
 	}
 }

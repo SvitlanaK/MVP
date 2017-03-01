@@ -8,42 +8,55 @@ namespace Model.Model
 {
 	public class AuthorServer 
 	{
-		private ModelContext db = new ModelContext();
+		private ModelContext _db = new ModelContext();
 		public AuthorServer()
 		{
-			db.Authors.Load();
+			_db.Authors.Load();
+			
+		}
+		public List<Book> BooksView()
+		{
+			return _db.Books.Include(x => x.Author).Where(x => x.Author.Id == x.AuthorId).ToList();
+			
+		}
+		public List<AuthorMagazine> AuthorView()
+		{
+			return _db.AuthorMagazines.Include(x => x.Magazine).Include(r=>r.Author)..ToList();
+
 		}
 		public IEnumerable<Author> GetAllAuthors()
 		{
-			return db.Authors;
+			return _db.Authors;
+			
 		}
-		public Author Create(Author _author)
+		public Author Create(Author author, AuthorMagazine magazine)
 		{
-			if(_author.Id == 0)
+			if(author.Id == 0)
 			{
-				db.Authors.Add(_author);
-				db.SaveChanges();
+				_db.Authors.Add(author);
+				_db.AuthorMagazines.Add(magazine);
+				_db.SaveChanges();
 			}
-			return _author;
+			return author;
 		}
-		public void Delete(int _id)
+		public void Delete(int id)
 		{
-			if(_id > 0)
+			if(id > 0)
 			{
-				Author a = db.Authors.Find(_id);
-				db.Authors.Remove(a);
-				db.SaveChanges();
+				var author = _db.Authors.Find(id);
+				_db.Authors.Remove(author);
+				_db.SaveChanges();
 			}
 		}
-		public Author Edite(Author _author)
+		public Author Edite(Author author)
 		{
-			Author authorUpdate = db.Authors.Where(p => p.Id == _author.Id).FirstOrDefault();
+			var authorUpdate = _db.Authors.Where(p => p.Id == author.Id).FirstOrDefault();
 			if(authorUpdate != null)
 			{
-				db.Entry(authorUpdate).CurrentValues.SetValues(_author);
+				_db.Entry(authorUpdate).CurrentValues.SetValues(author);
 
 			}
-			db.SaveChanges();
+			_db.SaveChanges();
 			return authorUpdate;
 		}
 	}

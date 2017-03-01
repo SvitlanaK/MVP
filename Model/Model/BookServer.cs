@@ -8,42 +8,42 @@ namespace Model.Model
 {
 	public class BookServer 
 	{
-		private ModelContext db = new ModelContext();
+		private ModelContext _db = new ModelContext();
 		public BookServer()
 		{
-			db.Books.Load();
+			_db.Books.Load();
 		}
 		public IEnumerable<Book> GetAllBooks()
 		{
-			return db.Books;
+			return _db.Books;
 		}
-		public Book Save(Book _book)
+		public Book Save(Book book)
 		{
-			if(_book.Id == 0)
+			if(book.Id == 0)
 			{
-				db.Books.Add(_book);
-				db.SaveChanges();
+				_db.Books.Add(book);
+				_db.SaveChanges();
 			}
-			return _book;
+			return book;
 		}
-		public void Delete(int _id)
+		public void Delete(int id)
 		{
-			if(_id > 0)
+			if(id > 0)
 			{
-				Book updateBook = db.Books.Find(_id);
-				db.Books.Remove(updateBook);
-				db.SaveChanges();
+				Book updateBook = _db.Books.Find(id);
+				_db.Books.Remove(updateBook);
+				_db.SaveChanges();
 			}
 		}
-		public Book Edite(Book _book)
+		public Book Edite(Book book)
 		{
-			Book bookUpdate = db.Books.Where(p => p.Id == _book.Id).FirstOrDefault();
+			Book bookUpdate = _db.Books.Where(p => p.Id == book.Id).FirstOrDefault();
 			if(bookUpdate != null)
 			{
-				db.Entry(bookUpdate).CurrentValues.SetValues(_book);
+				_db.Entry(bookUpdate).CurrentValues.SetValues(book);
 
 			}
-			db.SaveChanges();
+			_db.SaveChanges();
 			return bookUpdate;
 		}
 	}

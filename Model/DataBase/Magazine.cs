@@ -10,7 +10,7 @@ namespace Model.DataBase
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
-		public virtual List<AuthorMagazine> Authors { get; set; }
+		
 
 	}
 }
