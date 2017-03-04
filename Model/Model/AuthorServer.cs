@@ -17,26 +17,28 @@ namespace Model.Model
 		public List<Book> BooksView()
 		{
 			return _db.Books.Include(x => x.Author).Where(x => x.Author.Id == x.AuthorId).ToList();
-			
 		}
-		public List<AuthorMagazine> AuthorView()
+		public List<AuthorMagazine> ViewMagazines()
 		{
-			return _db.AuthorMagazines.Include(x => x.Magazine).Include(r=>r.Author)..ToList();
-
+			return _db.AuthorMagazines.Include(x => x.Magazine).Where(m => m.Magazine.Id >=0).ToList();
 		}
 		public IEnumerable<Author> GetAllAuthors()
 		{
 			return _db.Authors;
-			
 		}
-		public Author Create(Author author, AuthorMagazine magazine)
+		public Author Save(Author author, Magazine magazine)
 		{
 			if(author.Id == 0)
 			{
 				_db.Authors.Add(author);
-				_db.AuthorMagazines.Add(magazine);
-				_db.SaveChanges();
 			}
+			var magazineAdd = _db.Magazines.Where(m => m.Id == magazine.Id).SingleOrDefault();
+			if(magazineAdd != null)
+			{
+				var newMagazine = new AuthorMagazine { Magazine = magazineAdd,  Author = author };
+				_db.AuthorMagazines.Add(newMagazine);
+			}
+			_db.SaveChanges();
 			return author;
 		}
 		public void Delete(int id)
@@ -45,16 +47,26 @@ namespace Model.Model
 			{
 				var author = _db.Authors.Find(id);
 				_db.Authors.Remove(author);
-				_db.SaveChanges();
 			}
+			var magazineDelete = _db.AuthorMagazines.Where(c => c.Author.Id == id).SingleOrDefault();
+			if(magazineDelete != null)
+			{
+				_db.AuthorMagazines.Remove(magazineDelete);
+			}
+			_db.SaveChanges();
 		}
-		public Author Edite(Author author)
+		public Author Edite(Author author, Magazine magazine)
 		{
 			var authorUpdate = _db.Authors.Where(p => p.Id == author.Id).FirstOrDefault();
 			if(authorUpdate != null)
 			{
 				_db.Entry(authorUpdate).CurrentValues.SetValues(author);
-
+			}
+			var magazineAdd = _db.Magazines.Where(m => m.Id == magazine.Id).SingleOrDefault();
+			if(magazineAdd != null)
+			{
+				var newMagazine = new AuthorMagazine { Author = author, Magazine = magazineAdd };
+				_db.AuthorMagazines.Add(newMagazine);
 			}
 			_db.SaveChanges();
 			return authorUpdate;

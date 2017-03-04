@@ -41,7 +41,8 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.magazinesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+			this.comboBox2 = new System.Windows.Forms.ComboBox();
+			this.magazinesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.modelDataBaseModelContextDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this._Model_DataBase_ModelContextDataSet = new UI._Model_DataBase_ModelContextDataSet();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -54,24 +55,23 @@
 			this.txt_mname = new System.Windows.Forms.TextBox();
 			this.txt_fname = new System.Windows.Forms.TextBox();
 			this.txt_id = new System.Windows.Forms.TextBox();
+			this.magazinesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
 			this.button3 = new System.Windows.Forms.Button();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.magazinesBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.magazinesTableAdapter = new UI._Model_DataBase_ModelContextDataSetTableAdapters.MagazinesTableAdapter();
 			this.booksBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.booksTableAdapter = new UI._Model_DataBase_ModelContextDataSetTableAdapters.BooksTableAdapter();
-			this.comboBox2 = new System.Windows.Forms.ComboBox();
-			this.magazinesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.groupBox1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.magazinesBindingSource2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.magazinesBindingSource1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.modelDataBaseModelContextDataSetBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this._Model_DataBase_ModelContextDataSet)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.booksBindingSource1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.magazinesBindingSource2)).BeginInit();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.magazinesBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.magazinesBindingSource1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// dataGridView1
@@ -180,10 +180,21 @@
 			this.groupBox1.TabIndex = 5;
 			this.groupBox1.TabStop = false;
 			// 
-			// magazinesBindingSource2
+			// comboBox2
 			// 
-			this.magazinesBindingSource2.DataMember = "Magazines";
-			this.magazinesBindingSource2.DataSource = this.modelDataBaseModelContextDataSetBindingSource;
+			this.comboBox2.DataSource = this.magazinesBindingSource1;
+			this.comboBox2.DisplayMember = "Name";
+			this.comboBox2.FormattingEnabled = true;
+			this.comboBox2.Location = new System.Drawing.Point(195, 80);
+			this.comboBox2.Name = "comboBox2";
+			this.comboBox2.Size = new System.Drawing.Size(121, 21);
+			this.comboBox2.TabIndex = 11;
+			this.comboBox2.ValueMember = "Id";
+			// 
+			// magazinesBindingSource1
+			// 
+			this.magazinesBindingSource1.DataMember = "Magazines";
+			this.magazinesBindingSource1.DataSource = this.modelDataBaseModelContextDataSetBindingSource;
 			// 
 			// modelDataBaseModelContextDataSetBindingSource
 			// 
@@ -279,6 +290,11 @@
 			this.txt_id.TabIndex = 0;
 			this.txt_id.Text = "0";
 			// 
+			// magazinesBindingSource2
+			// 
+			this.magazinesBindingSource2.DataMember = "Magazines";
+			this.magazinesBindingSource2.DataSource = this.modelDataBaseModelContextDataSetBindingSource;
+			// 
 			// button3
 			// 
 			this.button3.Location = new System.Drawing.Point(18, 23);
@@ -316,22 +332,6 @@
 			// 
 			this.booksTableAdapter.ClearBeforeFill = true;
 			// 
-			// comboBox2
-			// 
-			this.comboBox2.DataSource = this.magazinesBindingSource1;
-			this.comboBox2.DisplayMember = "Name";
-			this.comboBox2.FormattingEnabled = true;
-			this.comboBox2.Location = new System.Drawing.Point(195, 80);
-			this.comboBox2.Name = "comboBox2";
-			this.comboBox2.Size = new System.Drawing.Size(121, 21);
-			this.comboBox2.TabIndex = 11;
-			this.comboBox2.ValueMember = "Id";
-			// 
-			// magazinesBindingSource1
-			// 
-			this.magazinesBindingSource1.DataMember = "Magazines";
-			this.magazinesBindingSource1.DataSource = this.modelDataBaseModelContextDataSetBindingSource;
-			// 
 			// AuthorView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -352,14 +352,14 @@
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.magazinesBindingSource2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.magazinesBindingSource1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.modelDataBaseModelContextDataSetBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this._Model_DataBase_ModelContextDataSet)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.booksBindingSource1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.magazinesBindingSource2)).EndInit();
 			this.groupBox2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.magazinesBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.magazinesBindingSource1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

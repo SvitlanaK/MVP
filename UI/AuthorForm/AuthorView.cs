@@ -20,8 +20,9 @@ namespace UI.AuthorForm
 		private void AuthorView_Load(object sender, EventArgs e)
 		{
 			this.booksTableAdapter.Fill(this._Model_DataBase_ModelContextDataSet.Books);
-			comboBox1.SelectedItem = null;
 			comboBox2.SelectedItem = null;
+			comboBox1.SelectedItem = null;
+		
 			this.magazinesTableAdapter.Fill(this._Model_DataBase_ModelContextDataSet.Magazines);
 			_presenter.InitView();
 			
@@ -34,11 +35,11 @@ namespace UI.AuthorForm
 				return author;
 			}
 		}
-		public AuthorMagazine AddItem
+		public Magazine AddItem
 		{
 			get
 			{
-				var magazine = new AuthorMagazine { MagazineId = Convert.ToInt32(comboBox2.SelectedValue) };
+				var magazine = new Magazine { Id = Convert.ToInt32(comboBox2.SelectedValue) };
 				return magazine;
 			}
 		}
@@ -51,25 +52,22 @@ namespace UI.AuthorForm
 			dataGridView1.Rows[row].Cells[3].Value = author.LastName;
 			try
 			{
-				foreach(AuthorMagazine authorMagazine in _presenter.AddMagazine)
+				foreach(AuthorMagazine authorMagazine in _presenter.AddMagazineFromDB)
 				{
-					if(author.Id == authorMagazine.AuthorId)
-						dataGridView1.Rows[row].Cells[4].Value += Convert.ToString(authorMagazine.Magazine.Name) + ", ";
+					if(author.Id == authorMagazine.Author.Id)
+						dataGridView1.Rows[row].Cells[4].Value = Convert.ToString(authorMagazine.Magazine.Name);
 					
 				}
 				foreach(Book book in _presenter.AddBook)
 				{
 					if(book.AuthorId == author.Id)
 						dataGridView1.Rows[row].Cells[5].Value += book.Name + ", ";
-
 				}
 			}
 			catch(Exception e)
 			{
 				MessageBox.Show("Вы не выбрали Книгу или газету " + e);
 			}
-			
-
 		}
 		public void EditeAuthorToList(Author author)
 		{

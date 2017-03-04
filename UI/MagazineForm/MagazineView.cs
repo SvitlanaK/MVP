@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace UI.MagazineForm
 {
-	public partial class MagazineView : Form, IMagazineView
+	public partial class MagazineView : Form,IMagazineView
 	{
 		private MagazinePresenter _presenter;
 
@@ -24,11 +24,11 @@ namespace UI.MagazineForm
 				return magazine;
 			}
 		}
-		public AuthorMagazine AddAuthor
+		public Author AddAuthor
 		{
 			get
 			{
-				var author = new AuthorMagazine { AuthorId = Convert.ToInt32(comboBox1.SelectedValue), MagazineId = Convert.ToInt32(txt_id.Text) };
+				var author = new Author { Id = Convert.ToInt32(comboBox1.SelectedValue) };
 				return author;
 			}
 		}
@@ -39,10 +39,10 @@ namespace UI.MagazineForm
 			dataGridView1.Rows[row].Cells[1].Value = magazine.Name;
 			try
 			{
-				foreach(AuthorMagazine authorMagazine in _presenter.AddAuthor)
+				foreach(AuthorMagazine authorMagazine in _presenter.AddAuthorFromDB)
 				{
-					if(magazine.Id == authorMagazine.MagazineId)
-						dataGridView1.Rows[row].Cells[2].Value += authorMagazine.Author.LastName + ", ";
+					if(magazine.Id == authorMagazine.Magazine.Id)
+						dataGridView1.Rows[row].Cells[2].Value = authorMagazine.Author.LastName;
 					
 				}
 			}
@@ -52,14 +52,18 @@ namespace UI.MagazineForm
 			}
 
 		}
-		public void EditeMagazineToList(Magazine magazine, AuthorMagazine authorMagazine)
+		public void EditeMagazineToList(Magazine magazine)
 		{
 			try
 			{
 				int index = dataGridView1.SelectedRows[0].Index;
 				dataGridView1.Rows[index].Cells[0].Value = magazine.Id;
 				dataGridView1.Rows[index].Cells[1].Value = magazine.Name;
-				dataGridView1.Rows[index].Cells[2].Value = authorMagazine.AuthorId;
+				foreach(AuthorMagazine authorMagazine in _presenter.AddAuthorFromDB)
+				{
+					if(magazine.Id == authorMagazine.Magazine.Id)
+						dataGridView1.Rows[index].Cells[2].Value = authorMagazine.Author.LastName;
+				}
 				MessageBox.Show("Объект изменен");
 			}
 			catch(Exception e)

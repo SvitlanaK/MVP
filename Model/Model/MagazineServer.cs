@@ -14,23 +14,29 @@ namespace Model.Model
 		{
 			_db.Magazines.Load();
 		}
-		public IEnumerable<Magazine> GetAllBooks()
+		public IEnumerable<Magazine> GetAllMagazines()
 		{
 			return _db.Magazines;
 		}
-		public List<AuthorMagazine> AuthorView()
+		public List<AuthorMagazine> ViewAuthors()
 		{
-			return _db.AuthorMagazines.Include(x => x.Author).Where(m => m.MagazineId == m.Magazine.Id).ToList();
-
+			return _db.AuthorMagazines.Include(x => x.Author).Where(m => m.Author.Id >= 0).ToList();
 		}
-		public Magazine Save(Magazine magazine, AuthorMagazine authorMagazine)
+		
+		public Magazine Save(Magazine magazine, Author author)
 		{
 			if(magazine.Id == 0)
 			{
 				_db.Magazines.Add(magazine);
-				_db.AuthorMagazines.Add(authorMagazine);
-				_db.SaveChanges();
 			}
+			var authorAdd = _db.Authors.Where(m => m.Id == author.Id).SingleOrDefault();
+			if(authorAdd != null)
+			{
+				var newAuthor = new AuthorMagazine { Author = authorAdd, Magazine = magazine };
+				_db.AuthorMagazines.Add(newAuthor);
+			}
+			_db.SaveChanges();
+			
 			return magazine;
 		}
 
@@ -38,21 +44,32 @@ namespace Model.Model
 		{
 			if(id > 0)
 			{
-				Magazine updateMagazine = _db.Magazines.Find(id);
-				_db.Magazines.Remove(updateMagazine);
-				_db.SaveChanges();
+				var magazine = _db.Magazines.Find(id);
+				_db.Magazines.Remove(magazine);
+				
 			}
-		}
-		public Magazine Edite(Magazine magazine, AuthorMagazine authorMagazine)
-		{
-			Magazine updateMagazine = _db.Magazines.Where(p => p.Id == magazine.Id).FirstOrDefault();
-			if(updateMagazine != null)
+			var authorDelete = _db.AuthorMagazines.Where(c => c.Magazine.Id == id).SingleOrDefault();
+			if(authorDelete != null)
 			{
-				_db.Entry(updateMagazine).CurrentValues.SetValues(magazine);
-				_db.AuthorMagazines.Add(authorMagazine);
+				_db.AuthorMagazines.Remove(authorDelete);
 			}
 			_db.SaveChanges();
-			return updateMagazine;
+		}
+		public Magazine Edite(Magazine magazine, Author author)
+		{
+			var magazineUpdate = _db.Magazines.Where(p => p.Id == magazine.Id).FirstOrDefault();
+			if(magazineUpdate != null)
+			{
+				_db.Entry(magazineUpdate).CurrentValues.SetValues(magazine);	
+			}
+			var authorAdd = _db.Authors.Where(m => m.Id == author.Id).SingleOrDefault();
+			if(authorAdd != null)
+			{
+				var newAuthor = new AuthorMagazine { Author = authorAdd, Magazine = magazine };
+				_db.AuthorMagazines.Add(newAuthor);
+			}
+			_db.SaveChanges();
+			return magazineUpdate;
 		}
 	}
 }

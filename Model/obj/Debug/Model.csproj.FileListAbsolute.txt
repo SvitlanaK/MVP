@@ -10,3 +10,4 @@ C:\Users\Светлана\Desktop\MVP\Model\obj\Debug\Model.pdb
 C:\Users\Светлана\Desktop\MVP\Model\obj\Debug\Model.Migrations.Model.resources
 C:\Users\Светлана\Desktop\MVP\Model\obj\Debug\Model.csproj.GenerateResource.Cache
 C:\Users\Светлана\Desktop\MVP\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\Светлана\Desktop\MVP\Model\obj\Debug\Model.Migrations.Model1.resources

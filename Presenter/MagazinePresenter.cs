@@ -17,22 +17,23 @@ namespace Presenter
 		}
 		public void InitView()
 		{
-			IEnumerable<Magazine> magazines = _model.GetAllBooks();
+			IEnumerable<Magazine> magazines = _model.GetAllMagazines();
 			foreach(Magazine magazine in magazines)
 			{
 				_view.AddMagazineToList(magazine);
 			}
 		}
-		public List<AuthorMagazine> AddAuthor
+		public List<AuthorMagazine> AddAuthorFromDB
 		{
 			get
 			{
-				return _model.AuthorView();
+				return _model.ViewAuthors();
 			}
 		}
 		public void Add()
 		{
 			var magazineUpdate = _model.Save(_view.Add, _view.AddAuthor);
+
 			_view.AddMagazineToList(magazineUpdate);
 		}
 		public void Remove()
@@ -41,8 +42,9 @@ namespace Presenter
 		}
 		public void Edite()
 		{
-			var magasineUpdate = _model.Edite(_view.Add,_view.AddAuthor );
-			_view.EditeMagazineToList(magasineUpdate, _view.AddAuthor);
+
+			var magasineUpdate = _model.Edite(_view.Add, _view.AddAuthor);
+			_view.EditeMagazineToList(magasineUpdate);
 		}
 	}
 }

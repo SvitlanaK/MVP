@@ -60,6 +60,10 @@
     <Compile Include="Migrations\201702221111047_Model.Designer.cs">
       <DependentUpon>201702221111047_Model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703012056254_Model1.cs" />
+    <Compile Include="Migrations\201703012056254_Model1.Designer.cs">
+      <DependentUpon>201703012056254_Model1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\AuthorServer.cs" />
     <Compile Include="Model\BookServer.cs" />
@@ -73,6 +77,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702221111047_Model.resx">
       <DependentUpon>201702221111047_Model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703012056254_Model1.resx">
+      <DependentUpon>201703012056254_Model1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

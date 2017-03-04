@@ -9,6 +9,6 @@ namespace Presenter.Interface
 		void EditeAuthorToList(Author author);
 		void AddAuthorToList(Author author);
 		int RemoveAuthor { get; }
-		AuthorMagazine AddItem { get; }
+		Magazine AddItem { get; }
 	}
 }

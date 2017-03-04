@@ -31,16 +31,16 @@ namespace Presenter
 				return _model.BooksView();
 			}
 		}
-		public List<AuthorMagazine> AddMagazine
+		public List<AuthorMagazine> AddMagazineFromDB
 		{
 			get
 			{
-				return _model.AuthorView();
+				return _model.ViewMagazines();
 			}
 		}
 		public void AddAuthor()
 		{
-			var author = _model.Create(_view.AuthorToAdd, _view.AddItem);
+			var author = _model.Save(_view.AuthorToAdd, _view.AddItem);
 			_view.AddAuthorToList(author);
 		}
 		public void RemoveAuthor()
@@ -49,7 +49,7 @@ namespace Presenter
 		}
 		public void EditeAuthor()
 		{
-			var author = _model.Edite(_view.AuthorToAdd);
+			var author = _model.Edite(_view.AuthorToAdd, _view.AddItem);
 			_view.EditeAuthorToList(author);
 		}
 		
