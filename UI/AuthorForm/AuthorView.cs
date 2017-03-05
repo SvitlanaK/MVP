@@ -18,12 +18,11 @@ namespace UI.AuthorForm
 		}
 
 		private void AuthorView_Load(object sender, EventArgs e)
-		{
+		{			
 			this.booksTableAdapter.Fill(this._Model_DataBase_ModelContextDataSet.Books);
-			comboBox2.SelectedItem = null;
 			comboBox1.SelectedItem = null;
-		
 			this.magazinesTableAdapter.Fill(this._Model_DataBase_ModelContextDataSet.Magazines);
+			comboBox2.SelectedItem = null;
 			_presenter.InitView();
 			
 		}
@@ -61,7 +60,7 @@ namespace UI.AuthorForm
 				foreach(Book book in _presenter.AddBook)
 				{
 					if(book.AuthorId == author.Id)
-						dataGridView1.Rows[row].Cells[5].Value += book.Name + ", ";
+						dataGridView1.Rows[row].Cells[5].Value += book.Name;
 				}
 			}
 			catch(Exception e)
@@ -141,6 +140,11 @@ namespace UI.AuthorForm
 			txt_fname.Text = dataGridView1.Rows[index].Cells[1].Value.ToString();
 			txt_mname.Text = dataGridView1.Rows[index].Cells[2].Value.ToString();
 			txt_lname.Text = dataGridView1.Rows[index].Cells[3].Value.ToString();
+		}
+
+		private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			
 		}
 	}
 }

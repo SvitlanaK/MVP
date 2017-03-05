@@ -117,9 +117,9 @@ namespace UI.MagazineForm
 
 		private void MagazineView_Load(object sender, EventArgs e)
 		{
-			comboBox1.ResetText();
-			comboBox1.SelectedItem = -1;
+			
 			this.authorsTableAdapter.Fill(this._Model_DataBase_ModelContextDataSet.Authors);
+			comboBox1.SelectedItem = null;
 			_presenter.InitView();
 		}
 

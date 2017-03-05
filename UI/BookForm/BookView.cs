@@ -20,7 +20,6 @@ namespace UI.BookForm
 			get
 			{
 				var book = new Book { Id = Convert.ToInt32(txt_id.Text), Name = txt_name.Text };
-
 				return book;
 			}
 		}
@@ -75,6 +74,7 @@ namespace UI.BookForm
 		private void BookView_Load(object sender, EventArgs e)
 		{
 			this.authorsTableAdapter.Fill(this._Model_DataBase_ModelContextDataSet.Authors);
+			comboBox1.SelectedItem = null;
 			_presenter.InitView();
 		}
 		private void button1_Click(object sender, EventArgs e)
