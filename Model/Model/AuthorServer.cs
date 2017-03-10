@@ -12,7 +12,6 @@ namespace Model.Model
 		public AuthorServer()
 		{
 			_db.Authors.Load();
-			
 		}
 		public List<Book> BooksView()
 		{

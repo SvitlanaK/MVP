@@ -141,10 +141,5 @@ namespace UI.AuthorForm
 			txt_mname.Text = dataGridView1.Rows[index].Cells[2].Value.ToString();
 			txt_lname.Text = dataGridView1.Rows[index].Cells[3].Value.ToString();
 		}
-
-		private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			
-		}
 	}
 }
